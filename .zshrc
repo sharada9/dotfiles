@@ -1,8 +1,10 @@
 source $HOME/.profile
 
 export HISTFILE=$HOME/.history.zsh
-export HISTCONTROL=erasedups
 export SAVEHIST=1000
+setopt appendhistory
+setopt sharehistory
+setopt histignorealldups
 
 fpath=( "$HOME/.zsh" $fpath )
 

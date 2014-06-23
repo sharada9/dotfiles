@@ -1,0 +1,54 @@
+# ~/.cwmrc
+
+sticky yes
+borderwidth 2
+fontname "Cuprum:pixelsize=14"
+gap 16 0 0 0
+
+color menubg black
+color menufg black
+color font white
+color selfont "#925a97"
+
+# Override built-in term command
+command term "urxvt"
+
+# Keybindings: commands
+bind 4-Return exec
+bind 4-t terminal
+bind 4-g firefox
+bind 4-comma "mixerctl outputs.master=-5"
+bind 4-period "mixerctl outputs.master=+5"
+
+# Keybindings: windows
+bind 4-Tab cycle
+bind 4-space maximize
+bind 4-V vmaximize
+bind 4-W delete
+bind 4-H hide
+bind 4-j cyclegroup
+bind 4-k rcyclegroup
+bind 4-s search
+bind 4-l label
+
+# Keybindings: groups
+bind 4-1 grouponly1
+bind 4-2 grouponly2
+bind 4-3 grouponly3
+bind 4-4 grouponly4
+bind 4-5 goruponly5
+bind S4-1 movetogroup1
+bind S4-2 movetogroup2
+bind S4-3 movetogroup3
+bind S4-4 movetogroup4
+bind S4-5 movetogroup5
+bind 4-T vtile
+
+bind 4-M1 raise_window
+
+autogroup 1 "Navigator,Firefox"
+autogroup 1 "Dialog,Firefox"
+
+autogroup 2 "pidgin,Pidgin"
+autogroup 2 "xchat,Xchat"
+
