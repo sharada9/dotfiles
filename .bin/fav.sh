@@ -1,6 +1,6 @@
 #!/bin/sh
 
-favfile="$HOME/Dropbox/Notes/faves.txt"
+favfile="$HOME/.faves.txt"
 np=$(ncmpcpp --now-playing '{%a - %t}')
 
 case $1 in

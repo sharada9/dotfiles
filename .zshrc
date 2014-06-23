@@ -1,5 +1,6 @@
 source $HOME/.profile
 
+export HISTFILE=$HOME/.history.zsh
 export HISTCONTROL=erasedups
 export SAVEHIST=1000
 
