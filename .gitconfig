@@ -1,0 +1,15 @@
+[alias]
+  co = checkout
+  ci = commit
+  rb = rebase
+  st = status
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]
+  status = auto
+  branch = auto
+  ui = auto
+
+[user]
+  name = Vasily Mikhaylichenko
+  email = vaskas@lxmx.com.au

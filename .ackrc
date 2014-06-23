@@ -1,0 +1,14 @@
+--type-add=js=.coffee
+--type-add=js=.json
+--type-add=js=.ejs
+--type-add=ruby=.erb
+--type-add=html=.eco
+--type-add=html=.jsp
+--type-add=html=.slim
+--type-add=html=.vm
+--type-add=html=.jade
+--type-add=css=.sass
+--type-add=css=.scss
+--type-add=ruby=.rake
+--type-add=ruby=.feature
+--type-add=shell=.fish

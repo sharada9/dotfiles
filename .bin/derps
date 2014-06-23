@@ -1,0 +1,58 @@
+#!/usr/bin/env bash -e
+
+parse_depfile() { local depfile=$1; local destroy=$2
+  local depdir=$(echo $depfile | sed 's/.dep//')
+
+  [ ! -z $destroy ] && rm -rf $depdir
+  mkdir -p $depdir
+
+  cat $depfile | while read line; do
+    process_dep "$depdir" "$line"
+  done
+}
+
+process_dep() { local depdir=$1; local dep=$2
+  read name github_ref revision <<< $(echo $dep)
+
+  if [ ! -e "$depdir/$name" ]; then
+    [ -z $revision ] && revision=master
+    local orig_name=$(echo "$github_ref" | tr "\/" "\n" | tail -1)
+
+    echo "Downloading $name ($revision)..."
+
+    local github_url="https://github.com/$github_ref/archive/$revision.tar.gz"
+    local out_name="$orig_name-$revision"
+    local out_arch="$out_name.tgz"
+    local out_path="$depdir/$out_arch"
+
+    download_file "$github_url" "$out_path"
+    extract_archive "$depdir" "$out_arch"
+    rename_and_symlink "$depdir" "$out_name" "$orig_name" "$name"
+  else
+    echo "$name is already here, skipping"
+  fi
+}
+
+download_file() { local url=$1; local path=$2
+  curl "$url" -Ls -o "$path"
+}
+
+extract_archive() { local dir=$1; local file=$2
+  pushd $dir > /dev/null
+  tar -zxf "$file"
+  rm "$file"
+  popd > /dev/null
+}
+
+rename_and_symlink() { local dir=$1; local cur_name=$2; local orig_name=$3; local new_name=$4
+  pushd $dir > /dev/null
+  if [ -d "$orig_name-master" ]; then
+    mv "$orig_name-master" "$new_name"
+  else
+    ln -s "$cur_name" "$new_name"
+  fi
+  popd > /dev/null
+}
+
+depfile_name=$(basename "$1")
+parse_depfile $1 yes

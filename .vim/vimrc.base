@@ -1,0 +1,100 @@
+set enc=utf-8
+set nocompatible
+set backspace=indent,eol,start
+set viminfo+=!
+set hidden
+
+filetype off
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+autocmd BufEnter * :syntax sync fromstart
+autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd QuickFixCmdPost *grep* cwindow
+
+" Disable beeping
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
+
+if has('gui_running')
+  au GUIEnter * set lines=50 columns=120
+  if has("gui_gtk2")
+    set guifont=Liberation\ Mono\ 9
+  endif
+else
+  set t_Co=256
+endif
+
+set backupdir=~/.vim/sessions
+set dir=~/.vim/sessions
+
+filetype on
+filetype plugin on
+
+set ruler
+set guioptions-=T
+set completeopt-=preview
+set gcr=a:blinkon0
+
+set number
+set cmdheight=2
+
+set laststatus=2
+set statusline=[%l,%c\ %P%M]\ %f\ %r%h%w
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+
+set guitablabel=%N/\ %t\ %M
+
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+
+set list
+set listchars=tab:▸\ ,eol:¬
+
+set smarttab
+set smartindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" Insert spaces at the beginning of a line and tabs elsewhere
+inoremap <Silent> <Tab> <C-R>=(col('.') > (matchend(getline('.'), '^\s*') + 1))?'<C-V><C-V><Tab>':'<Tab>'<CR>
+
+" Ruby
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" HTML, ERB
+let html_no_rendering=1
+autocmd BufNewFile,BufRead *.rhtml setlocal ft=eruby
+
+" JavaScript
+let javascript_enable_domhtmlcss=1
+
+" JSON
+autocmd FileType json setlocal shiftwidth=2 tabstop=2
+
+" CoffeeScript
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Key mappings
+let mapleader = "\\"
+map <leader>a :Ag
+map <leader>t :CtrlP<CR>
+map <leader>o :NERDTreeToggle<CR>
+map <leader>n :tabnew<CR>
+map <leader>w :tabclose<CR>
+
+let i = 1
+while i <= 9
+  execute 'nnoremap <leader>' . i . ' ' . i . 'gt'
+  let i = i + 1
+endwhile
+
+" gitgutter
+highlight clear SignColumn

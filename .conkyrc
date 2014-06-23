@@ -1,0 +1,19 @@
+alignment top_left
+default_color white
+double_buffer yes
+own_window no
+own_window_class Conky
+own_window_type desktop
+use_xft yes
+gap_x 5
+gap_y 2
+xftfont PragmataPro:size=9
+out_to_x yes
+out_to_console no
+update_interval 2
+total_run_times 0
+use_spacer none
+TEXT
+CPU: ${cpubar cpu0 10,40 } ${cpu cpu0}% |  RAM: ${membar 10,40} ${memperc}% | Uptime: ${uptime_short} | ${if_up em0}LAN ${addr em0}, ${downspeedf em0}kbps/${upspeedf em0}kbps |${endif}${if_up iwn0}WLAN ${addr iwn0}, ${downspeedf iwn0}kbps/${upspeedf iwn0}kbps |${endif} ${fs_free /} free on / | Bat ${apm_battery_life} | ${execi 5 date }
+
+

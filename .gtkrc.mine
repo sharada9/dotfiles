@@ -1,0 +1,10 @@
+style "font"
+{
+  font_name = "Cuprum 10"
+}
+widget_class "*" style "font"
+gtk-font-name = "Cuprum 10"
+
+gtk-icon-theme-name = "evolvere"
+gtk-key-theme-name = "Default"
+
