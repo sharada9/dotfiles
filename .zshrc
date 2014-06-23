@@ -2,9 +2,8 @@ source $HOME/.profile
 
 export HISTFILE=$HOME/.history.zsh
 export SAVEHIST=1000
-setopt appendhistory
-setopt sharehistory
-setopt histignorealldups
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 fpath=( "$HOME/.zsh" $fpath )
 
