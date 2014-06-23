@@ -1,3 +1,3 @@
 #!/bin/sh
 
-host google.com>/dev/null && echo "ON" || echo "OFF"
+host duckduckgo.com > /dev/null && echo "ON" || echo "OFF"
