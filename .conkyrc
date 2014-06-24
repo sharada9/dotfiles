@@ -14,6 +14,6 @@ update_interval 2
 total_run_times 0
 use_spacer none
 TEXT
-CPU: ${cpubar cpu0 10,40 } ${cpu cpu0}% |  RAM: ${membar 10,40} ${memperc}% | ${if_up em0}LAN ${addr em0}, ${downspeedf em0}kbps/${upspeedf em0}kbps |${endif}${if_up iwn0}WLAN [${execi 10 netcheck.sh}] ${addr iwn0}, ${downspeedf iwn0}kbps/${upspeedf iwn0}kbps |${endif} ${fs_free /} free on / | Uptime: ${uptime_short} | Bat ${apm_battery_life} | ${execi 5 date }
+CPU: ${cpubar cpu0 10,40 } ${cpu cpu0}% |  RAM: ${membar 10,40} ${memperc}% | ${if_up em0}LAN [${execi 10 netcheck.sh}] ${addr em0}, ${downspeedf em0}kbps/${upspeedf em0}kbps |${endif}${if_up iwn0}WLAN [${execi 10 netcheck.sh}] ${addr iwn0}, ${downspeedf iwn0}kbps/${upspeedf iwn0}kbps |${endif} ${fs_free /} free on / | Uptime: ${uptime_short} | Bat ${apm_battery_life} | ${execi 5 date }
 
 
