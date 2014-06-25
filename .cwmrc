@@ -3,7 +3,7 @@
 sticky yes
 borderwidth 2
 fontname "Cuprum:pixelsize=14"
-gap 16 0 0 0
+gap 17 0 0 0
 
 color menubg black
 color menufg black
