@@ -44,7 +44,8 @@ bind S4-4 movetogroup4
 bind S4-5 movetogroup5
 bind 4-T vtile
 
-mousebind 4-1 window_raise
+mousebind 4-1 window_move
+mousebind 4-2 window_resize
 
 autogroup 1 "Navigator,Firefox"
 autogroup 1 "Dialog,Firefox"
@@ -53,3 +54,4 @@ autogroup 2 "pidgin,Pidgin"
 autogroup 2 "xchat,Xchat"
 
 ignore conky
+ignore panel
