@@ -1,0 +1,5 @@
+#!/bin/sh
+
+out="/tmp/mdown_out.html"
+
+markdown_py "$1" > "$out" && firefox "$out" &
