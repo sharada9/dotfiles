@@ -30,3 +30,4 @@ source $HOME/.zsh/history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
