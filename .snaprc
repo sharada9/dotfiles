@@ -1,0 +1,5 @@
+INTERACTIVE:true
+DST:/tmp/upgrade
+MERGE:true
+MIRROR:mirror.aarnet.edu.au
+PROTO:ftp
