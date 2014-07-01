@@ -74,6 +74,7 @@ let javascript_enable_domhtmlcss=1
 
 " JSON
 autocmd FileType json setlocal shiftwidth=2 tabstop=2
+autocmd BufEnter * :setlocal conceallevel=0
 
 " CoffeeScript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -95,6 +96,10 @@ while i <= 9
   execute 'nnoremap <leader>' . i . ' ' . i . 'gt'
   let i = i + 1
 endwhile
+
+map <leader>pj :%!python -m json.tool<CR>
+map <leader>px :%!xmllint % --format<CR>
+map <leader>pc :CoffeeCompile<CR>
 
 " gitgutter
 highlight clear SignColumn
