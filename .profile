@@ -1,8 +1,10 @@
-PATH=$HOME/.bin:./node_modules/.bin:$HOME/.gem/bin:/usr/local/jre-1.7.0/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
+GOPATH="$HOME/.go"
+
+PATH=$HOME/.bin:$GOPATH/bin:./node_modules/.bin:$HOME/.gem/bin:/usr/local/jre-1.7.0/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
 
 PKG_PATH="http://mirror.internode.on.net/pub/OpenBSD/snapshots/packages/amd64/"
 
-export PATH HOME TERM PKG_PATH
+export GOPATH PATH HOME TERM PKG_PATH
 
 HISTFILE=$HOME/.history
 HISTSIZE=1000
