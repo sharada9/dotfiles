@@ -103,3 +103,9 @@ map <leader>pc :CoffeeCompile<CR>
 
 " gitgutter
 highlight clear SignColumn
+
+" use the_silver_searcher if present
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
