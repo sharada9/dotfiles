@@ -30,8 +30,11 @@ source $HOME/.zsh/z.sh
 source $HOME/.zsh/syntax-highlighting.zsh
 source $HOME/.zsh/history-substring-search.zsh
 
-# bind UP and DOWN arrow keys
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
