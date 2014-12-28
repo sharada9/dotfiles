@@ -9,12 +9,12 @@ export GOPATH PATH HOME TERM PKG_PATH
 HISTFILE=$HOME/.history
 HISTSIZE=1000
 
-if which vim > /dev/null; then
+if which vim 2&>1  > /dev/null; then
   export EDITOR=$(which vim)
   alias vi="vim"
 fi
 
-if which colorls > /dev/null; then
+if which colorls 2&>1 > /dev/null; then
   export CLICOLOR=1
   alias ls="colorls"
 fi
