@@ -38,3 +38,4 @@
 
 !cursor
 Xcursor.size:  16
+Xft.lcdfilter:  lcddefault
